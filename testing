@@ -1,7 +1,25 @@
-echo "# First-test" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Runway6214/First-test.git
-git push -u origin main
+import os
+import datetime
+import subprocess
+
+def make_commit():
+    # Set the repository path (replace with your repository path if needed)
+    repo_path = "/path/to/your/repository"
+    
+    # Set the commit message
+    commit_message = f"Data-driven network analysis insights - {datetime.datetime.now().strftime('%Y-%m-%d')}"
+    
+    # Change to the repository directory
+    os.chdir(repo_path)
+    
+    # Stage all changes
+    subprocess.run(["git", "add", "."])
+    
+    # Commit with the generated message
+    subprocess.run(["git", "commit", "-m", commit_message])
+    
+    # Push to the repository (ensure you have the correct remote set up)
+    subprocess.run(["git", "push"])
+
+if __name__ == "__main__":
+    make_commit()
